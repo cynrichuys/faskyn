@@ -25,5 +25,6 @@ module Faskyn
 
     # config/application.rb
     config.assets.initialize_on_precompile = false
+    config.assets.precompile += %w( .svg .eot .woff .ttf .png .jpg .gif)
   end
 end
