@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'welcome#index'
 
+  get 'shop', to: 'welcome#shop'
+  get 'welcome/newsletter'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

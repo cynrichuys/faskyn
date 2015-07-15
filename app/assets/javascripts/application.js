@@ -14,3 +14,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+//= require bootstrap.min
+//= require waypoints.min
+//= require scripts
+//= require jquery.flexslider
+//= require modernizr
