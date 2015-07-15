@@ -137,7 +137,7 @@
 </div>
 <section class="subscribe text-center">
   <div class="container">
-    <h1><i class="fa fa-bullhorn fa-2x"></i><span>Op de hoogte blijven? Geef je e-mailadres op!</span></h1>
+    <h1><i class="fa fa-bullhorn fa-4x box-hover"></i><span>Op de hoogte blijven? Geef je e-mailadres op!</span></h1>
     <%= form_tag({controller: "welcome", action: "newsletter"}, method: "get", remote: true, class: "nifty_form") do %>
       <%= text_field_tag(:mailaddress) %>
 	  <%= submit_tag("Verstuur") %>
