@@ -67,9 +67,9 @@ $(function() {
 
 /***************** Nav Transformicon ******************/
 
-document.querySelector("#nav-toggle").addEventListener("click", function() {
-	this.classList.toggle("active");
-});
+//document.querySelector("#nav-toggle").addEventListener("click", function() {
+//	this.classList.toggle("active");
+//});
 
 /***************** Overlays ******************/
 
@@ -101,43 +101,4 @@ $(document).ready(function(){
             $(this).removeClass("hover");
         });
     }
-});
-
-/***************** Flexsliders ******************/
-
-$(window).load(function() {
-
-	$('#portfolioSlider').flexslider({
-		animation: "slide",
-		directionNav: false,
-		controlNav: true,
-		touch: false,
-		pauseOnHover: true,
-		start: function() {
-			$.waypoints('refresh');
-		}
-	});
-
-	$('#servicesSlider').flexslider({
-		animation: "slide",
-		directionNav: false,
-		controlNav: true,
-		touch: true,
-		pauseOnHover: true,
-		start: function() {
-			$.waypoints('refresh');
-		}
-	});
-
-	$('#teamSlider').flexslider({
-		animation: "slide",
-		directionNav: false,
-		controlNav: true,
-		touch: true,
-		pauseOnHover: true,
-		start: function() {
-			$.waypoints('refresh');
-		}
-	});
-
 });
