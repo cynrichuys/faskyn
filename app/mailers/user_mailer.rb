@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-	default from: "\"Faskyn online\" <web@faskyn.be>"
+	default from: "\"Faskyn web\" <web@faskyn.be>"
  
   def welcome_email(user)
     @user = user
@@ -7,7 +7,7 @@ class UserMailer < ApplicationMailer
 
 	attachments.inline['header.png'] = File.read(Rails.root + "public/header.png")
 
-    mail(to: @user.email, subject: "#{@user.name}, welkom bij Faskyn online!")
+    mail(to: @user.email, subject: "#{@user.name}, welkom bij Faskyn!")
   end
 
 end

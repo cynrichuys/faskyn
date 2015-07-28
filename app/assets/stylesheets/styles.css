@@ -175,7 +175,7 @@ a { color: #353535; -webkit-transition: all 0.5s; -moz-transition: all 0.5s; -o-
 a:hover, a:focus { color: #3dc9b3; text-decoration: none; }
 p { color: #8c9398; word-spacing: 1px; line-height: 25px; font-size: 14px; }
 h2 { font-size: 15px; color: #353535; text-transform: uppercase; font-weight: bold; }
-h2::after { content: " "; border: solid 2px #3dc9b3; display: block; width: 35px; margin: 25px auto; }
+h2.h2lined::after { content: " "; border: solid 2px #3dc9b3; display: block; width: 35px; margin: 25px auto; }
 .section-padding { padding: 90px 0 100px }
 .dark-bg { background: #f3f5f8; }
 .light-bg { background-color: #fff; }
@@ -321,5 +321,8 @@ Waypoints
 .wp1, .wp2, .wp3, .wp4, .wp5, .wp6 { visibility: hidden; }
 .bounceInLeft, .bounceInRight, .fadeInUp, .fadeInUpDelay, .fadeInDown, .fadeInUpD, .fadeInLeft, .fadeInRight { visibility: visible; }
 .delay-05s { animation-delay: 0.5s; -webkit-animation-delay: 0.5s; }
-.delay-1s { animation-delay: 1s; -webkit-animation-delay: 1s; }
+.delay-1s { animation-delay: 1.0s; -webkit-animation-delay: 1.0s; }
+.delay-04s { animation-delay: 0.4s; -webkit-animation-delay: 0.4s; }
+.delay-08s { animation-delay: 0.8s; -webkit-animation-delay: 0.8s; }
+.delay-12s { animation-delay: 1.2s; -webkit-animation-delay: 1.2s; }
 .wp3 { background: url('iphone-bg.png') no-repeat center center; background-position: 200px 10px; height: 100%; }
