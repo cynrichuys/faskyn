@@ -85,8 +85,7 @@ Rails.application.configure do
     :port                 => 465,   
     :domain               => 'faskyn.be',                               
     :user_name            => 'web@faskyn.be',
-    :password             => 'emailcynric',         
-    :authentication       => :login,
+    :authentication       => :plain,
     :ssl                  => true,
     :tls                  => true,
     :enable_starttls_auto => true    
