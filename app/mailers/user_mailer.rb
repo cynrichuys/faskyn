@@ -1,10 +1,13 @@
 class UserMailer < ApplicationMailer
-	default from: 'web@faskyn.be'
+	default from: "\"Faskyn online\" <web@faskyn.be>"
  
   def welcome_email(user)
     @user = user
     @url  = 'http://example.com/login'
-    mail(to: @user.email, subject: "#{@user.name}, Welcome to My Awesome Site")
+
+	attachments.inline['header.png'] = File.read(Rails.root + "public/header.png")
+
+    mail(to: @user.email, subject: "#{@user.name}, welkom bij Faskyn online!")
   end
 
 end

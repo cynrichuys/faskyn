@@ -39,7 +39,8 @@ Rails.application.configure do
   ActionMailer::Base.delivery_method = :smtp  
   ActionMailer::Base.smtp_settings = {            
     :address              => "smtp.zoho.com", 
-    :port                 => 465,                 
+    :port                 => 465,
+    :domain               => 'localhost',                 
     :user_name            => 'web@faskyn.be',
     :password             => 'emailcynric',         
     :authentication       => :login,
