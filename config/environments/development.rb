@@ -36,6 +36,18 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
+  ActionMailer::Base.delivery_method = :smtp  
+  ActionMailer::Base.smtp_settings = {            
+    :address              => "smtp.zoho.com", 
+    :port                 => 465,                 
+    :user_name            => 'web@faskyn.be',
+    :password             => 'emailcynric',         
+    :authentication       => :login,
+    :ssl                  => true,
+    :tls                  => true,
+    :enable_starttls_auto => true    
+  }
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end

@@ -137,10 +137,11 @@
 </div>
 <section class="subscribe text-center">
   <div class="container">
-    <h1><i class="fa fa-bullhorn fa-4x box-hover"></i><span>Op de hoogte blijven? Geef je e-mailadres op!</span></h1>
+    <h1><i class="fa fa-bullhorn fa-4x box-hover"></i><span>Op de hoogte blijven? Geef je gegevens op!</span></h1>
     <%= form_tag({controller: "welcome", action: "newsletter"}, method: "get", remote: true, class: "nifty_form") do %>
-      <%= text_field_tag(:mailaddress) %>
-	  <%= submit_tag("Verstuur") %>
+      <%= text_field_tag(:name, '', placeholder: "naam", style: "width: 180px;") %>
+      <%= text_field_tag(:mailaddress, '', placeholder: "e-mailadres", style: "width: 250px;") %>
+	  <%= submit_tag("Verstuur", id: "subscribeNewsletter", data: {disable_with: "Verzenden..."}, onclick: "subscribedNewsletter();") %>
     <% end %>
   </div>
 </section>
@@ -184,6 +185,13 @@
     </div>
   </div>
 </section>
+
+<script>
+function subscribedNewsletter()
+{
+ document.getElementById('subscribeNewsletter').value = "Bedankt!";
+}
+</script>
 
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>

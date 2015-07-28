@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+  get 'users/new'
+
   root 'welcome#index'
+
+  resources :users
 
   get 'shop', to: 'welcome#shop'
   get 'welcome/newsletter'
