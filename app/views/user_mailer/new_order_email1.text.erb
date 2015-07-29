@@ -1,0 +1,5 @@
+<%= @name %> heeft zonet aangegeven geïnteresseerd te zijn in entry <%= @id %>:
+
+<%= ShopEntry.where(id: @id).first[:description] %>
+
+<%= @name %> wenst het juweel op te halen en kan bereikt worden op het emailadres <%= @email %>.

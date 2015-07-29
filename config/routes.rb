@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get 'shop/manage', to: 'welcome#manage_shop'
   post 'shop/add', to: 'welcome#add_shop_entry'
   post 'shop/delete', to: 'welcome#delete_shop_entry'
+  post 'shop/order', to: 'welcome#order_entry1'
+  post 'shop/order-and-pay', to: 'welcome#order_entry2'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

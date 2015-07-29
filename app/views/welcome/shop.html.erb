@@ -59,11 +59,84 @@
                 <div class="thumbnail">
                     <%= image_tag(entry[:photo]) %>
                     <div class="caption">
-                        <p><%= entry[:description] %></p>
-                        <h3 style="float: left;">&euro;<%= entry[:price] %></h3>(ID <%= entry[:id] %>)<a href="#" class="btn btn-sm">Meer info</a>
-                        
+                        <a href="#" class="btn btn-default" data-toggle="modal" data-target="#<%= entry[:id] %>Modal"><strong>&euro;<%= entry[:price] %></strong> &ndash; Koop nu</a><br>                        
                     </div>
                 </div>
+            </div>
+
+            <div class="modal fade" id="<%= entry[:id] %>Modal" tabindex="-1" role="dialog" aria-labelledby="<%= entry[:id] %>Modal" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h3 class="modal-title" id="myModalLabel">Bestelprocedure</h3>
+                  </div>
+                  <div class="modal-body text-left">
+                    <h4>Thuis ophalen</h4>
+                    <p>Indien u de juwelen kan komen ophalen te Nevele, laat ons dit dan even weten met behulp van onderstaand formulier en u wordt zo snel mogelijk gecontacteerd!</p>
+                    <%= form_tag({action: :order_entry1}, multipart: true, class: "form-horizontal") do %>
+                        <div class="form-group">
+                            <label for="name" class="col-sm-3 control-label">Naam</label>
+                            <div class="col-sm-9">
+                                <%= text_field_tag 'name', nil, class: "form-control" %>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="col-sm-3 control-label">E-mailadres</label>
+                            <div class="col-sm-9">
+                                <%= email_field_tag 'email', nil, class: "form-control" %>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-9 col-sm-offset-3">
+                                <%= submit_tag("Verzend", data: {disable_with: "Verwerken..."}, class: 'btn btn-default' ) %>
+                            </div>
+                        </div>
+                        <%= hidden_field_tag 'id', entry[:id] %>
+                    <% end %>
+                    <h4>Verzenden per post</h4>
+                    <p>U kan de juwelen niet komen ophalen? Geen nood, ze kunnen ook per post opgestuurd worden. Hiervoor wordt er een standaardtarief van &euro;2,50 aangerekend. U kan het totale bedrag van <strong>&euro;<%= (entry[:price].to_i+2.5) %></strong> storten op rekening XXX-XXXXXXXX-XX. Vergeet zeker niet het ID van deze bestelling (<strong>ID<%= entry[:id] %></strong>) bij de betaling te vermelden. Van zodra de betaling ontvangen is worden de juwelen met zorg verpakt en opgestuurd. Indien u een aangekondigde zending wenst kan u ons best even <a href="mailto:anneke@faskyn.be">mailen</a>.</p>
+                    <%= form_tag({action: :order_entry2}, multipart: true, class: "form-horizontal") do %>
+                        <div class="form-group">
+                            <label for="name" class="col-sm-3 control-label">Naam</label>
+                            <div class="col-sm-9">
+                                <%= text_field_tag 'name', nil, class: "form-control" %>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="col-sm-3 control-label">E-mailadres</label>
+                            <div class="col-sm-9">
+                                <%= email_field_tag 'email', nil, class: "form-control" %>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="col-sm-3 control-label">Straat en nummer</label>
+                            <div class="col-sm-7">
+                                <%= text_field_tag 'street', nil, class: "form-control" %>
+                            </div>
+                            <div class="col-sm-2">
+                                <%= text_field_tag 'streetnumber', nil, class: "form-control" %>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="col-sm-3 control-label">Postcode en gemeente</label>
+                            <div class="col-sm-2">
+                                <%= text_field_tag 'postalcode', nil, class: "form-control" %>
+                            </div>
+                            <div class="col-sm-7">
+                                <%= text_field_tag 'city', nil, class: "form-control" %>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-9 col-sm-offset-3">
+                                <%= submit_tag("Verzend", data: {disable_with: "Verwerken..."}, class: 'btn btn-default' ) %>
+                            </div>
+                        </div>
+                        <%= hidden_field_tag 'id', entry[:id] %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
             </div>
         <% end %>
 

@@ -1,0 +1,13 @@
+<%= @name %> heeft zonet aangegeven geïnteresseerd te zijn in entry <%= @id %>:
+
+<%= ShopEntry.where(id: @id).first[:description] %>
+
+PRIJS: <%= ShopEntry.where(id: @id).first[:price] %> euro + 2.50 euro verzendkosten
+
+<%= @name %> wil het juweel graag toegestuurd krijgen op volgend adres:
+
+<%= @name %>
+<%= @street %> <%= @streetnumber %>
+<%= @postalcode %> <%= @city %>
+
+<%= @name %> kan bereikt worden op het emailadres <%= @email %>

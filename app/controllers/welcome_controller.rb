@@ -50,6 +50,22 @@ class WelcomeController < ApplicationController
     render :manage_shop
   end
 
+  def order_entry1
+    UserMailer.new_order_email1(params[:id], params[:name], params[:email]).deliver_later
+    UserMailer.order_email1(params[:id], params[:name], params[:email]).deliver_later
+
+    flash[:notice] = "Uw aanvraag werd verwerkt!"
+    render :shop
+  end
+
+  def order_entry2
+    UserMailer.new_order_email2(params[:id], params[:name], params[:email], params[:street], params[:streetnumber], params[:postalcode], params[:city]).deliver_later
+    UserMailer.order_email2(params[:id], params[:name], params[:email], params[:street], params[:streetnumber], params[:postalcode], params[:city]).deliver_later
+
+    flash[:notice] = "Uw aanvraag werd verwerkt!"
+    render :shop
+  end
+
   def newsletter
     if params[:mailaddress] =~ /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
       @user = User.create(name: params[:name], email: params[:mailaddress])
