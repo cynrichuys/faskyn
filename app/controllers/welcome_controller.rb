@@ -20,12 +20,13 @@ class WelcomeController < ApplicationController
         id = last_entry[:id] + 1
       end
 
-      uploaded_io = params[:picture]
-      File.open(Rails.root.join('app', 'assets','images', uploaded_io.original_filename), 'wb') do |file|
-        file.write(uploaded_io.read)
-      end
+      #uploaded_io = params[:picture]
+      #File.open(Rails.root.join('app', 'assets','images', uploaded_io.original_filename), 'wb') do |file|
+      #  file.write(uploaded_io.read)
+      #end
+      #ShopEntry.create(id: id, price: params[:price], description: params[:description], photo: uploaded_io.original_filename)
 
-      ShopEntry.create(id: id, price: params[:price], description: params[:description], photo: uploaded_io.original_filename)
+      ShopEntry.create(id: id, price: params[:price], description: params[:description], photo: params[:picture])
 
       flash[:notice] = "De nieuwe entry werd succesvol toegevoegd (ID #{id})"
     rescue
@@ -38,8 +39,8 @@ class WelcomeController < ApplicationController
 
   def delete_shop_entry
     begin
-      photo = ShopEntry.where(id: params[:id]).first[:photo]
-      File.delete(photo) if File.exist?(photo)
+      #photo = ShopEntry.where(id: params[:id]).first[:photo]
+      #File.delete(photo) if File.exist?(photo)
       ShopEntry.destroy_all(id: params[:id])
 
       flash[:notice] = "Entry #{params[:id]} werd succesvol verwijderd"
@@ -50,7 +51,6 @@ class WelcomeController < ApplicationController
   end
 
   def newsletter
-  	puts "@@@@@@ check"
     if params[:mailaddress] =~ /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
       @user = User.create(name: params[:name], email: params[:mailaddress])
 

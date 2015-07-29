@@ -12,16 +12,16 @@
                 <%= form_tag({action: :add_shop_entry}, multipart: true) do %>
                 <table style="width:100%">
                   <tr>
-                    <td><strong>Prijs</strong></td>
-                    <td><%= text_field_tag 'price', nil, placeholder: 'Prijs', style: 'margin-top: 10px;'  %></td> 
+                    <td><strong>Prijs (&euro;)</strong></td>
+                    <td><%= text_field_tag 'price', nil, style: 'margin-top: 10px;'  %></td> 
                   </tr>
                   <tr>
                     <td><strong>Beschrijving</strong></td>
                     <td><%= text_area_tag 'description', nil, rows: 10, cols: 25, style: 'margin-top: 10px;'  %></td> 
                   </tr>
                   <tr>
-                    <td><strong>Foto</strong></td>
-                    <td><%= file_field_tag 'picture', style: 'margin-top: 10px;'  %></td> 
+                    <td><strong>Foto-URL</strong></td>
+                    <td><%= text_field_tag 'picture', nil, style: 'margin-top: 10px;'  %></td> 
                   </tr>
                   <tr>
                     <td></td>
