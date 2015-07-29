@@ -1,0 +1,63 @@
+<body>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Jumbotron Header -->
+        <header class="jumbotron hero-spacer" style="margin-top: 30px;">
+            <h1>Configuratiepaneel</h1>
+            <p style="float: right; margin-top: -85px">Ga naar de <a href="/shop">webwinkel</a></p>
+            <div class="container">
+              <h2>Voeg een entry toe</h2>
+                <%= form_tag({action: :add_shop_entry}, multipart: true) do %>
+                <table style="width:100%">
+                  <tr>
+                    <td><strong>Prijs</strong></td>
+                    <td><%= text_field_tag 'price', nil, placeholder: 'Prijs', style: 'margin-top: 10px;'  %></td> 
+                  </tr>
+                  <tr>
+                    <td><strong>Beschrijving</strong></td>
+                    <td><%= text_area_tag 'description', nil, rows: 10, cols: 25, style: 'margin-top: 10px;'  %></td> 
+                  </tr>
+                  <tr>
+                    <td><strong>Foto</strong></td>
+                    <td><%= file_field_tag 'picture', style: 'margin-top: 10px;'  %></td> 
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td><%= submit_tag("Verstuur", data: {disable_with: "Verwerken..."}, class: 'btn btn-default', style: 'margin-top: 10px;'  ) %></td> 
+                  </tr>
+                </table>
+                
+                <% end %>
+            </div>
+            <hr />
+            <div class="container">
+              <h2>Verwijder een entry</h2>
+                <%= form_tag({action: :delete_shop_entry}, multipart: true) do %>
+                <table style="width:100%">
+                  <tr>
+                    <td><strong>ID</strong></td>
+                    <td><%= text_field_tag 'id', nil, placeholder: 'ID' %></td> 
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td><%= submit_tag("Verwijder", data: {disable_with: "Verwerken..."}, class: 'btn btn-default', style: 'margin-top: 10px;'  ) %></td> 
+                  </tr>
+                </table>
+                
+                <% end %>
+            </div>
+        </header>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="../js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+</body>

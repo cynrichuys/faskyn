@@ -5,9 +5,12 @@ Rails.application.routes.draw do
 
   resources :users
 
-  get 'shop', to: 'welcome#shop'
-  get 'welcome/newsletter'
 
+  get 'shop', to: 'welcome#shop'
+  get 'shop/newsletter', to: 'welcome#newsletter'
+  get 'shop/manage', to: 'welcome#manage_shop'
+  post 'shop/add', to: 'welcome#add_shop_entry'
+  post 'shop/delete', to: 'welcome#delete_shop_entry'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

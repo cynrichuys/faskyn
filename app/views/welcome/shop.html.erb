@@ -54,58 +54,20 @@
         <!-- Page Features -->
         <div class="row text-center">
 
+        <% ShopEntry.all.each do |entry| %>
             <div class="col-md-3 col-sm-6 hero-feature">
                 <div class="thumbnail">
-                    <img src="http://placehold.it/800x500" alt="">
+                    <%= image_tag(entry[:photo]) %>
                     <div class="caption">
-                        <h3>Titel</h3>
-                        <p>Beschrijving</p>
-                        <p>
-                            <a href="#" class="btn btn-primary">Koop nu!</a> <a href="#" class="btn btn-default">Meer info</a>
-                        </p>
+                        <p><%= entry[:description] %></p>
+                        <h3 style="float: left;">&euro;<%= entry[:price] %></h3>(ID <%= entry[:id] %>)<a href="#" class="btn btn-sm">Meer info</a>
+                        
                     </div>
                 </div>
             </div>
+        <% end %>
 
-            <div class="col-md-3 col-sm-6 hero-feature">
-                <div class="thumbnail">
-                    <img src="http://placehold.it/800x500" alt="">
-                    <div class="caption">
-                        <h3>Titel</h3>
-                        <p>Beschrijving</p>
-                        <p>
-                            <a href="#" class="btn btn-primary">Koop nu!</a> <a href="#" class="btn btn-default">Meer info</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-sm-6 hero-feature">
-                <div class="thumbnail">
-                    <img src="http://placehold.it/800x500" alt="">
-                    <div class="caption">
-                        <h3>Titel</h3>
-                        <p>Beschrijving</p>
-                        <p>
-                            <a href="#" class="btn btn-primary">Koop nu!</a> <a href="#" class="btn btn-default">Meer info</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-sm-6 hero-feature">
-                <div class="thumbnail">
-                    <img src="http://placehold.it/800x500" alt="">
-                    <div class="caption">
-                        <h3>Titel</h3>
-                        <p>Beschrijving</p>
-                        <p>
-                            <a href="#" class="btn btn-primary">Koop nu!</a> <a href="#" class="btn btn-default">Meer info</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
+            
         </div>
         <!-- /.row -->
 
@@ -127,12 +89,6 @@
 
     </div>
     <!-- /.container -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
