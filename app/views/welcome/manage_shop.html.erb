@@ -9,43 +9,47 @@
             <p style="float: right; margin-top: -85px">Ga naar de <a href="/shop">webwinkel</a></p>
             <div class="container">
               <h2>Voeg een entry toe</h2>
-                <%= form_tag({action: :add_shop_entry}, multipart: true) do %>
-                <table style="width:100%">
-                  <tr>
-                    <td><strong>Prijs (&euro;)</strong></td>
-                    <td><%= text_field_tag 'price', nil, style: 'margin-top: 10px;'  %></td> 
-                  </tr>
-                  <tr>
-                    <td><strong>Beschrijving</strong></td>
-                    <td><%= text_area_tag 'description', nil, rows: 10, cols: 25, style: 'margin-top: 10px;'  %></td> 
-                  </tr>
-                  <tr>
-                    <td><strong>Foto-URL</strong></td>
-                    <td><%= text_field_tag 'picture', nil, style: 'margin-top: 10px;'  %></td> 
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td><%= submit_tag("Verstuur", data: {disable_with: "Verwerken..."}, class: 'btn btn-default', style: 'margin-top: 10px;'  ) %></td> 
-                  </tr>
-                </table>
-                
+                <%= form_tag({action: :add_shop_entry}, multipart: true, class: "form-horizontal") do %>
+                    <div class="form-group">
+                        <label for="price" class="col-sm-2 control-label">Prijs (&euro;)</label>
+                        <div class="col-sm-2">
+                            <%= text_field_tag 'price', nil, placeholder: 'bvb 12', class: "form-control" %>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="description" class="col-sm-2 control-label">Beschrijving</label>
+                        <div class="col-sm-10">
+                            <%= text_area_tag 'description', nil, class: "form-control" %>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="picture" class="col-sm-2 control-label">Foto-URL</label>
+                        <div class="col-sm-10">
+                            <%= text_field_tag 'picture', nil, class: "form-control" %>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-10 col-sm-offset-2">
+                            <%= submit_tag("Voeg toe", data: {disable_with: "Verwerken..."}, class: 'btn btn-default' ) %>
+                        </div>
+                    </div>
                 <% end %>
             </div>
             <hr />
             <div class="container">
               <h2>Verwijder een entry</h2>
-                <%= form_tag({action: :delete_shop_entry}, multipart: true) do %>
-                <table style="width:100%">
-                  <tr>
-                    <td><strong>ID</strong></td>
-                    <td><%= text_field_tag 'id', nil, placeholder: 'ID' %></td> 
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td><%= submit_tag("Verwijder", data: {disable_with: "Verwerken..."}, class: 'btn btn-default', style: 'margin-top: 10px;'  ) %></td> 
-                  </tr>
-                </table>
-                
+                <%= form_tag({action: :delete_shop_entry}, multipart: true, class: "form-horizontal") do %>
+                  <div class="form-group">
+                      <label for="id" class="col-sm-2 control-label">ID</label>
+                      <div class="col-sm-2">
+                          <%= text_field_tag 'id', nil, placeholder: 'bvb 92', class: "form-control" %>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <div class="col-sm-10 col-sm-offset-2">
+                          <%= submit_tag("Verwijder", data: {disable_with: "Verwerken..."}, class: 'btn btn-default' ) %>
+                      </div>
+                  </div>
                 <% end %>
             </div>
         </header>
