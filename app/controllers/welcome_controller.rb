@@ -73,6 +73,7 @@ class WelcomeController < ApplicationController
       if @user.save
         # Tell the UserMailer to send a welcome email after save
         UserMailer.welcome_email(@user).deliver_later
+        UserMailer.new_subscriber_email(@user).deliver_later
       end
     else
       puts "unvalid mailaddress: #{params[:mailaddress]}"

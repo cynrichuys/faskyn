@@ -3,11 +3,16 @@ class UserMailer < ApplicationMailer
  
   def welcome_email(user)
     @user = user
-    @url  = 'http://example.com/login'
 
 	attachments.inline['header.png'] = File.read(Rails.root + "public/header.png")
 
     mail(to: @user.email, subject: "#{@user.name}, welkom bij Faskyn!")
+  end
+
+  def new_subscriber_email(user)
+  	@user = user
+
+    mail(to: 'anneke@faskyn.be', subject: "Nieuwe inschrijving op de nieuwsbrief")
   end
 
   def new_order_email1(id, name, email)
@@ -15,7 +20,7 @@ class UserMailer < ApplicationMailer
   	@name = name
   	@email = email
 
-	mail(to: 'cynrichuys@gmail.com', subject: 'Nieuwe bestelling (ophalen)')
+	mail(to: 'anneke@faskyn.be', subject: 'Nieuwe bestelling (ophalen)')
   end
 
   def new_order_email2(id, name, email, street, streetnumber, postalcode, city)
@@ -27,7 +32,7 @@ class UserMailer < ApplicationMailer
   	@postalcode = postalcode
   	@city = city
 
-	mail(to: 'cynrichuys@gmail.com', subject: 'Nieuwe bestelling (verzenden)')
+	mail(to: 'anneke@faskyn.be', subject: 'Nieuwe bestelling (verzenden)')
   end
 
 
