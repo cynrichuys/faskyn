@@ -1,3 +1,13 @@
+<style>
+.tooltip-inner {
+    max-width: 400px;
+    min-width: 300px;
+    text-align: left;
+    padding: 20px;
+    border: 2px solid #2E2E2E;
+}
+</style>
+
 <body>
 
     <!-- Page Content -->
@@ -55,11 +65,12 @@
         <div class="row text-center">
 
         <% ShopEntry.all.each do |entry| %>
-            <div class="col-md-3 col-sm-6 hero-feature">
+            <div class="col-md-3 col-sm-6 hero-feature text-left">
                 <div class="thumbnail">
-                    <%= image_tag(entry[:photo]) %>
+                    <span data-toggle="tooltip" title="Tooltip on bottom"></span><%= image_tag(entry[:photo]) %>
                     <div class="caption">
-                        <a href="#" class="btn btn-default" data-toggle="modal" data-target="#<%= entry[:id] %>Modal"><strong>&euro;<%= entry[:price] %></strong> &ndash; Koop nu</a><br>                        
+                        <div class=""><a href="#" class="btn btn-default" data-toggle="modal" data-target="#<%= entry[:id] %>Modal"><strong>&euro;<%= entry[:price] %></strong> &ndash; Koop nu</a></div>
+                        <div class="pull-right" style="margin-top: -25px;"><i class="fa fa-tag fa-lg" style="max-width:600px; white-space: pre-wrap;" data-toggle="tooltip" data-html="true" title="<strong>Identificatie: ID<%= entry[:id] %></strong><hr><%= entry[:description].gsub(/\n/, '<br><br>') %> "></i></div> 
                     </div>
                 </div>
             </div>
@@ -164,4 +175,10 @@
     <!-- /.container -->
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+    <script>
+    $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+    </script>
 </body>

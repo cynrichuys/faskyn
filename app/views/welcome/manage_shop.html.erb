@@ -35,7 +35,7 @@
                     </div>
                 <% end %>
             </div>
-            <hr />
+            <hr>
             <div class="container">
               <h2>Verwijder een entry</h2>
                 <%= form_tag({action: :delete_shop_entry}, multipart: true, class: "form-horizontal") do %>
@@ -52,6 +52,34 @@
                   </div>
                 <% end %>
             </div>
+            <hr>
+            <div class="container">
+              <h2>Geregistreerde nieuwsbriefgebruikers</h2>
+              <div class="panel" style="margin-left: 30px; margin-right: 30px;">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Naam</th>
+                      <th>E-mailadres</th>
+                      <th>Geregistreerd sinds</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% User.all.each_with_index do |entry,index| %>
+                    <tr>
+                      <th scope="row"><%= index+1 %></th>
+                      <td><%= entry[:name] %></td>
+                      <td><%= entry[:email] %></td>
+                      <td><%= entry[:created_at].strftime('%d/%m/%Y %R') %></td>
+                    </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+
         </header>
 
     </div>
