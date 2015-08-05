@@ -18,4 +18,6 @@
  *= require flexslider
  *= require queries
  *= require styles
+ *= require bootstrap-select
+ *= require bootstrap-select.min
  */

@@ -1,3 +1,74 @@
+<style>
+.calendar {
+    margin: 0px auto;
+    width: 80px;
+    height: 70px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    position: relative;
+    background: #E6E6E6;
+    }
+
+.header {
+    height: 20px;
+    background: #e74c3c;
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-radius-topright: 10px;
+    border-top-right-radius: 10px;
+    -webkit-border-top-left-radius: 10px;
+    -moz-border-radius-topleft: 10px;
+    border-top-left-radius: 10px;
+  width: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: #FFF;
+  line-height: 20px
+    }
+
+.num-day {
+    height: 36px;
+    font-size: 34px;
+    color: #333;
+    text-align: center
+    }
+
+.header:before {
+    background: #333;
+    height: 5px;
+    width: 5px;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    padding: 2px
+    }
+
+.header:after {
+    background: #333;
+    height: 5px;
+    width: 5px;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    padding: 2px
+    }
+
+figure{
+    border-radius:10px;
+    overflow:hidden;
+}
+</style>
+
 <body id="top">
 <header id="home">
 
@@ -66,7 +137,7 @@
         <h4>Juwelen bij Faskyn aangekocht</h4>
         <p>Juwelen die bij ons werden aangekocht worden <strong>gratis</strong> hersteld. Enkel materiaal wordt aangerekend.</p>
         <h4>Andere juwelen</h4>
-        <p>Voor andere juwelen wordt er een standaardkost van &euro;5 aangerekend, naast het eventueel te vervangen materiaal. Voor het knopen van korte enkele parelkettingen bedraagt de kost &euro;25.</p>
+        <p>Voor andere juwelen wordt er een standaardkost van &euro;5 aangerekend, naast het eventueel te vervangen materiaal. Voor het knopen van korte enkele parelkettingen bedraagt de kost &euro;15.</p>
       </div>
     </div>
   </div>
@@ -130,7 +201,24 @@
       <h3 class="modal-title" id="myModalLabel">Workshop</h3>
       </div>
       <div class="modal-body">
-        <p>Iedere <strong>eerste</strong> maandag van de maand is er vrij atelier voor &euro;10 per persoon, exclusief materiaal. Iedere <strong>derde</strong> maandag van de maand kan je een voorgesteld juweel maken, de prijs staat vermeld bij foto in de <a href="/shop">webshop</a>. </p><p>Inschrijven en afspreken kan via <a href="mailto:anneke@faskyn.be">mail</a>.</p>
+        <p>Iedere <strong>eerste</strong> maandag van de maand is er vrij atelier voor &euro;10 per persoon, exclusief materiaal. Iedere <strong>derde</strong> maandag van de maand kan je een voorgesteld juweel maken. Onderstaande lijst geeft hiervan een overzicht. </p><p>Inschrijven en afspreken kan via <a href="mailto:anneke@faskyn.be">mail</a>.</p>
+        <br>
+        <table class="table">
+        <% WorkshopEntry.all.each do |entry| %>
+          <tr>
+            <td style="max-width: 120px; width: 100px; padding-top: 30px; padding-right: 20px;">
+              <div class="calendar">
+                <div class="header"><%= entry[:month] %></div>
+                <div class="num-day"><%= entry[:day] %></div>
+              </div>
+            </td>
+            <td style="max-width: 150px; padding-top: 30px; padding-bottom: 30px">
+              <figure><%= image_tag(entry[:photo], style: "max-width: 100%; height: auto; width: 100%;") %></figure>
+              <p><%= entry[:description].gsub(/\n/, '<br><br>') %></p>
+            </td>
+          </tr>
+        <% end %>
+        </table>
       </div>
     </div>
   </div>

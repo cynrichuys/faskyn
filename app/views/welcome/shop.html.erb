@@ -96,7 +96,7 @@
                         <%= hidden_field_tag 'id', entry[:id] %>
                     <% end %>
                     <h4>Verzenden per post</h4>
-                    <p>U kan de juwelen niet komen ophalen? Geen nood, ze kunnen ook per post opgestuurd worden. Hiervoor wordt er een standaardtarief van &euro;2,50 aangerekend. U kan het totale bedrag van <strong>&euro;<%= (entry[:price].to_i+2.5) %></strong> storten op rekening XXX-XXXXXXXX-XX. Vergeet zeker niet het ID van deze bestelling (<strong>ID<%= entry[:id] %></strong>) bij de betaling te vermelden. Van zodra de betaling ontvangen is worden de juwelen met zorg verpakt en opgestuurd. Indien u een aangekondigde zending wenst kan u ons best even <a href="mailto:anneke@faskyn.be">mailen</a>.</p>
+                    <p>U kan de juwelen niet komen ophalen? Geen nood, ze kunnen ook per post opgestuurd worden. Hiervoor wordt er een standaardtarief van &euro;2.5 aangerekend. U kan het totale bedrag van <strong>&euro;<%= (entry[:price].to_i+2.5) %></strong> storten op rekening <strong>BE42 7360 1339 4754</strong>. Vergeet zeker niet het ID van deze bestelling (<strong>ID<%= entry[:id] %></strong>) bij de betaling te vermelden. Van zodra de betaling ontvangen is worden de juwelen met zorg verpakt en opgestuurd. Indien u een aangekondigde zending wenst kan u ons best even <a href="mailto:anneke@faskyn.be">mailen</a>.</p>
                     <%= form_tag({action: :order_entry2}, multipart: true, class: "form-horizontal") do %>
                         <div class="form-group">
                             <label for="name" class="col-sm-3 control-label">Naam</label>

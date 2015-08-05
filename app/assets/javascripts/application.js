@@ -20,3 +20,4 @@
 //= require scripts
 //= require jquery.flexslider
 //= require modernizr
+//= require bootstrap-select

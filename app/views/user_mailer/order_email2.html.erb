@@ -133,7 +133,7 @@
               <h4 class="secondary"><strong><singleline label="Title"></singleline></strong></h4>
               <multiline label="Description"><p style="color:#888888;font-size:13px;line-height:19px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">Je hebt zonet aangegeven geïnteresseerd te zijn in het onderstaande juweel:</p>
               <p style="color:#888888;font-size:13px;line-height:19px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;"><%= ShopEntry.where(id: @id).first[:description] %></p>
-              <p style="color:#888888;font-size:13px;line-height:19px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">Van zodra je betaling van &euro;<%= ShopEntry.where(id: @id).first[:price] %> ontvangen is wordt je pakketje verzonden naar onderstaand adres:</p>
+              <p style="color:#888888;font-size:13px;line-height:19px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">Van zodra je betaling van &euro;<%= ShopEntry.where(id: @id).first[:price].to_i+2.5 %> ontvangen is wordt je pakketje verzonden naar onderstaand adres:</p>
               <p style="color:#888888;font-size:13px;line-height:19px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
               <%= @name %><br>
               <%= @street %> <%= @streetnumber %><br>

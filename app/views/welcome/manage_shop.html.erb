@@ -8,12 +8,12 @@
             <h1>Configuratiepaneel</h1>
             <p style="float: right; margin-top: -85px">Ga naar de <a href="/shop">webwinkel</a></p>
             <div class="container">
-              <h2>Voeg een entry toe</h2>
+              <h2>Voeg een juweel toe aan de webwinkel</h2>
                 <%= form_tag({action: :add_shop_entry}, multipart: true, class: "form-horizontal") do %>
                     <div class="form-group">
-                        <label for="price" class="col-sm-2 control-label">Prijs (&euro;)</label>
+                        <label for="price" class="col-sm-2 control-label">Prijs (&euro;)<br><small>(enkel cijfers)</small></label>
                         <div class="col-sm-2">
-                            <%= text_field_tag 'price', nil, placeholder: 'bvb 12', class: "form-control" %>
+                            <%= text_field_tag 'price', nil, placeholder: "bvb '12'", class: "form-control" %>
                         </div>
                     </div>
                     <div class="form-group">
@@ -23,7 +23,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="picture" class="col-sm-2 control-label">Foto-URL</label>
+                        <label for="picture" class="col-sm-2 control-label">Foto-URL<br><small>(bij voorkeur staande foto's)</small></label>
                         <div class="col-sm-10">
                             <%= text_field_tag 'picture', nil, class: "form-control" %>
                         </div>
@@ -37,12 +37,70 @@
             </div>
             <hr>
             <div class="container">
-              <h2>Verwijder een entry</h2>
+              <h2>Verwijder een juweel uit de webwinkel</h2>
                 <%= form_tag({action: :delete_shop_entry}, multipart: true, class: "form-horizontal") do %>
                   <div class="form-group">
-                      <label for="id" class="col-sm-2 control-label">ID</label>
+                      <label for="id" class="col-sm-2 control-label">ID<br><small>(enkel cijfers)</small></label>
                       <div class="col-sm-2">
-                          <%= text_field_tag 'id', nil, placeholder: 'bvb 92', class: "form-control" %>
+                          <%= text_field_tag 'id', nil, placeholder: "bvb '92'", class: "form-control" %>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <div class="col-sm-10 col-sm-offset-2">
+                          <%= submit_tag("Verwijder", data: {disable_with: "Verwerken..."}, class: 'btn btn-default' ) %>
+                      </div>
+                  </div>
+                <% end %>
+            </div>
+            <hr>
+            <div class="container">
+              <h2>Voeg een juweel toe aan de workshop</h2>
+                <%= form_tag({action: :add_workshop_entry}, multipart: true, class: "form-horizontal") do %>
+                     <div class="form-group">
+                        <label for="day" class="col-sm-2 control-label">Dag</label>
+                        <div class="col-sm-2">
+                            <%= select_tag 'day', options_for_select([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31]), class: "" %>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="month" class="col-sm-2 control-label">Maand</label>
+                        <div class="col-sm-2">
+                            <%= select_tag 'month', options_for_select([["Januari", "Jan"], ["Februari", "Feb"], ["Maart", "Mar"], ["April", "Apr"], ["Mei", "Mei"], ["Juni", "Jun"], ["Juli", "Jul"], ["Augustus", "Aug"], ["September", "Sep"], ["Oktober", "Okt"], ["November", "Nov"], ["December", "Dec"]]), class: "" %>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="description" class="col-sm-2 control-label">Beschrijving</label>
+                        <div class="col-sm-10">
+                            <%= text_area_tag 'description', nil, class: "form-control" %>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="picture" class="col-sm-2 control-label">Foto-URL<br><small>(bij voorkeur liggende foto's)</small></label>
+                        <div class="col-sm-10">
+                            <%= text_field_tag 'picture', nil, class: "form-control" %>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-10 col-sm-offset-2">
+                            <%= submit_tag("Voeg toe", data: {disable_with: "Verwerken..."}, class: 'btn btn-default' ) %>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+            <hr>
+            <div class="container">
+              <h2>Verwijder een juweel uit de webwinkel</h2>
+                <%= form_tag({action: :delete_workshop_entry}, multipart: true, class: "form-horizontal") do %>
+                  <div class="form-group">
+                      <label for="day" class="col-sm-2 control-label">Dag</label>
+                      <div class="col-sm-2">
+                          <%= select_tag 'day', options_for_select([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31]), class: "" %>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="month" class="col-sm-2 control-label">Maand</label>
+                      <div class="col-sm-2">
+                          <%= select_tag 'month', options_for_select([["Januari", "Jan"], ["Februari", "Feb"], ["Maart", "Mar"], ["April", "Apr"], ["Mei", "Mei"], ["Juni", "Jun"], ["Juli", "Jul"], ["Augustus", "Aug"], ["September", "Sep"], ["Oktober", "Okt"], ["November", "Nov"], ["December", "Dec"]]), class: "" %>
                       </div>
                   </div>
                   <div class="form-group">
@@ -85,11 +143,9 @@
     </div>
     <!-- /.container -->
 
-    <!-- jQuery -->
-    <script src="../js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../js/bootstrap.min.js"></script>
-
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+    <script>
+      $('.selectpicker').selectpicker();
+    </script>
 </body>
