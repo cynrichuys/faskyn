@@ -54,7 +54,7 @@
             </div>
             <hr>
             <div class="container">
-              <h2>Voeg een juweel toe aan de workshop</h2>
+              <h2>Voeg een nieuwe activiteit toe aan de workshop</h2>
                 <%= form_tag({action: :add_workshop_entry}, multipart: true, class: "form-horizontal") do %>
                      <div class="form-group">
                         <label for="day" class="col-sm-2 control-label">Dag</label>
@@ -89,7 +89,7 @@
             </div>
             <hr>
             <div class="container">
-              <h2>Verwijder een juweel uit de webwinkel</h2>
+              <h2>Verwijder een activiteit uit de workshop</h2>
                 <%= form_tag({action: :delete_workshop_entry}, multipart: true, class: "form-horizontal") do %>
                   <div class="form-group">
                       <label for="day" class="col-sm-2 control-label">Dag</label>
