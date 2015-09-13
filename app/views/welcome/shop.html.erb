@@ -54,7 +54,7 @@
         <!-- Page Features -->
         <div class="row text-center">
 
-        <% ShopEntry.all.each do |entry| %>
+        <% ShopEntry.order(created_at: :desc).all.each do |entry| %>
             <div class="col-md-3 col-sm-6 hero-feature text-left">
                 <div class="thumbnail">
                     <span data-toggle="tooltip" title="Tooltip on bottom"></span><%= image_tag(entry[:photo]) %>
