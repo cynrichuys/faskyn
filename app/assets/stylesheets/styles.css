@@ -334,3 +334,8 @@ Waypoints
     padding: 20px;
     opacity: 0.90;
 }
+
+.minsizetextfield {
+	width: 120px;
+	max-width: 120px;
+}

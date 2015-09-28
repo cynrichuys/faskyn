@@ -59,8 +59,12 @@
                 <div class="thumbnail">
                     <span data-toggle="tooltip" title="Tooltip on bottom"></span><%= image_tag(entry[:photo]) %>
                     <div class="caption">
+                    <% if !entry[:sold] || entry[:sold].nil? %>
                         <div class=""><a href="#" class="btn btn-default" data-toggle="modal" data-target="#<%= entry[:id] %>Modal"><strong>&euro;<%= entry[:price] %></strong> &ndash; Koop nu</a></div>
-                        <div class="pull-right" style="margin-top: -25px;"><i class="fa fa-tag fa-lg" style="max-width:600px; white-space: pre-wrap;" data-toggle="tooltip" data-html="true" title="<strong>Identificatie: ID<%= entry[:id] %></strong><hr><%= entry[:description].gsub(/\n/, '<br><br>') %> "></i></div> 
+                    <% else %>
+                        <div class=""><a href="#" class="btn btn-default disabled" data-toggle="modal" data-target="#<%= entry[:id] %>Modal"><strong>&euro;<%= entry[:price] %></strong> &ndash; Verkocht</a></div>
+                    <% end %>
+                        <div class="pull-right" style="margin-top: -25px;"><i class="fa fa-tag fa-lg" style="max-width:600px; white-space: pre-wrap;" data-toggle="tooltip" data-html="true" title="<strong>Identificatie: ID<%= entry[:id] %></strong><hr><%= entry[:description].gsub(/\n/, '<br><br>') %> "></i></div>    
                     </div>
                 </div>
             </div>

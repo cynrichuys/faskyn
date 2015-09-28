@@ -97,6 +97,9 @@ class WelcomeController < ApplicationController
   def order_entry1
     UserMailer.new_order_email1(params[:id], params[:name], params[:email]).deliver_later
     UserMailer.order_email1(params[:id], params[:name], params[:email]).deliver_later
+    entry = ShopEntry.where(id: params[:id]).first;
+    entry.sold = true;
+    entry.save;
 
     flash[:notice] = "Uw aanvraag werd verwerkt!"
     render :shop
@@ -105,6 +108,9 @@ class WelcomeController < ApplicationController
   def order_entry2
     UserMailer.new_order_email2(params[:id], params[:name], params[:email], params[:street], params[:streetnumber], params[:postalcode], params[:city]).deliver_later
     UserMailer.order_email2(params[:id], params[:name], params[:email], params[:street], params[:streetnumber], params[:postalcode], params[:city]).deliver_later
+    entry = ShopEntry.where(id: params[:id]).first;
+    entry.sold = true;
+    entry.save;
 
     flash[:notice] = "Uw aanvraag werd verwerkt!"
     render :shop
