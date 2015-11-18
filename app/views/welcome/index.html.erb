@@ -144,7 +144,7 @@
             </td>
             <td style="max-width: 150px; padding-top: 30px; padding-bottom: 30px">
               <figure><%= image_tag(entry[:photo], style: "max-width: 100%; height: auto; width: 100%;") %></figure>
-              <p><%= entry[:description].gsub(/\n/, '<br><br>').html_safe %></p>
+              <p><%= entry[:description].gsub(/\n/, '<br>').html_safe %></p>
             </td>
           </tr>
         <% end %>
@@ -247,6 +247,77 @@
     </div>
   </div>
 </section>
+
+<style>
+  .calendar {
+      margin: 0px auto;
+      width: 80px;
+      height: 70px;
+      -moz-border-radius: 10px;
+      -webkit-border-radius: 10px;
+      border-radius: 10px;
+      position: relative;
+      background: #E6E6E6;
+  }
+
+  .header {
+      height: 20px;
+      background: #e74c3c;
+      -webkit-border-top-right-radius: 10px;
+      -moz-border-radius-topright: 10px;
+      border-top-right-radius: 10px;
+      -webkit-border-top-left-radius: 10px;
+      -moz-border-radius-topleft: 10px;
+      border-top-left-radius: 10px;
+      width: 100%;
+      text-align: center;
+      font-size: 14px;
+      color: #FFF;
+      line-height: 20px
+  }
+
+  .num-day {
+      height: 36px;
+      font-size: 34px;
+      color: #333;
+      text-align: center
+  }
+
+  .header:before {
+      background: #333;
+      height: 5px;
+      width: 5px;
+      content: "";
+      display: block;
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      -moz-border-radius: 2px;
+      -webkit-border-radius: 2px;
+      border-radius: 2px;
+      padding: 2px
+  }
+
+  .header:after {
+      background: #333;
+      height: 5px;
+      width: 5px;
+      content: "";
+      display: block;
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      -moz-border-radius: 2px;
+      -webkit-border-radius: 2px;
+      border-radius: 2px;
+      padding: 2px
+  }
+
+  figure{
+      border-radius:10px;
+      overflow:hidden;
+  }
+</style>
 
 <script>
 function subscribedNewsletter()
