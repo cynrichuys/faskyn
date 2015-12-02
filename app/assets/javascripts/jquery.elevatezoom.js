@@ -1056,22 +1056,7 @@ if ( typeof Object.create !== 'function' ) {
 
 										}
 
-										/*
-             if(!self.bgxp){self.bgxp = self.largeWidth/self.newvalue;}
-						if(!self.bgyp){self.bgyp = self.largeHeight/self.newvalue ;}  
-                 if (!self.bgloop){   
-                 	self.bgloop = setInterval(function(){   
-
-                 self.bgxp += (self.largeWidth/self.newvalue  - self.bgxp) / self.options.easingAmount; 
-								self.bgyp += (self.largeHeight/self.newvalue  - self.bgyp) / self.options.easingAmount;
-
-           self.zoomWindow.css({ "background-size": self.bgxp + 'px ' + self.bgyp + 'px' });
-
-
-                  }, 16);
-
-                 }
-										 */
+										
 										self.changeBgSize = false;
 									}
 
