@@ -19,5 +19,6 @@
 //= require waypoints.min
 //= require scripts
 //= require jquery.flexslider
+//= require jquery.elevatezoom
 //= require modernizr
 //= require bootstrap-select
