@@ -57,7 +57,7 @@
         <% ShopEntry.order(created_at: :desc).all.each do |entry| %>
             <div class="col-md-3 col-sm-6 hero-feature text-left">
                 <div class="thumbnail">
-                    <span data-toggle="tooltip" title="Tooltip on bottom"></span><%= image_tag(entry[:photo]) %>
+                    <span data-toggle="tooltip" title="Tooltip on bottom"></span><%= image_tag(entry[:photo], class: "zoom", "data-zoom-image" => entry[:photo] )%>
                     <div class="caption">
                     <% if !entry[:sold] || entry[:sold].nil? %>
                         <div class=""><a href="#" class="btn btn-default" data-toggle="modal" data-target="#<%= entry[:id] %>Modal"><strong>&euro;<%= entry[:price] %></strong> &ndash; Koop nu</a></div>
@@ -174,5 +174,10 @@
     $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })
+    $('.zoom').elevateZoom({
+        easing: true,
+        zoomWindowWidth: 300,
+        zoomWindowHeight: 300
+    });
     </script>
 </body>
