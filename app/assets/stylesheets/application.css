@@ -18,6 +18,7 @@
  *= require flexslider
  *= require queries
  *= require styles
+ *= require wookmark
  *= require bootstrap-select
  *= require bootstrap-select.min
  */
