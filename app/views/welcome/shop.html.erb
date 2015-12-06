@@ -177,6 +177,9 @@
         outerOffset: 20, // Optional, the distance to the containers border
         itemWidth: 250 // Optional, the width of a grid item
       });
+      setTimeout(function() {
+      $('.tiles-wrap').trigger('refreshWookmark');
+    }, 500);
     });
   </script>
 </body>
