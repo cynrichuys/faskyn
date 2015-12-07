@@ -20,5 +20,6 @@
 //= require scripts
 //= require jquery.flexslider
 //= require wookmark
+//= require imagesloaded
 //= require modernizr
 //= require bootstrap-select
