@@ -63,6 +63,7 @@
         </li>
       <% end %>
     </ul>
+    <p class="text-center">Problemen bij het laden van de pagina? <a href="" onclick="location.reload();">Refresh</a> dan even!</p>
 
     <% ShopEntry.order(created_at: :desc).all.each do |entry| %>
       <div class="modal fade" id="<%= entry[:id] %>Modal" tabindex="-1" role="dialog" aria-labelledby="<%= entry[:id] %>Modal" aria-hidden="true">
