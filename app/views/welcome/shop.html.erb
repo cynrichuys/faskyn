@@ -46,7 +46,7 @@
       <br><br><br>
     </div>
     <!-- Page Features -->
-    <ul id="img-container" class="tiles-wrap">
+    <ul id="wookmark-container" class="tiles-wrap">
       <% ShopEntry.order(created_at: :desc).all.each do |entry| %>
          <li class="text-left" style="width: 250px; padding-bottom: 10px;">
             <a href="#" data-toggle="modal" data-target="#<%= entry[:id] %>ModalPhoto">
@@ -171,23 +171,29 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
   <script>
-    $(function () {
-      $('[data-toggle="tooltip"]').tooltip()
-    });
-    $(window).load(function() {
-      $('.tiles-wrap').wookmark({
-        // Prepare layout options.
-        autoResize: true, // This will auto-update the layout when the browser window is resized.
-        offset: 30, // Optional, the distance between grid items
-        outerOffset: 20, // Optional, the distance to the containers border
-        itemWidth: 250 // Optional, the width of a grid item
-      });
-      setTimeout(function() {
-        $('.tiles-wrap').trigger('refreshWookmark');
-      }, 500);
-    });
     $('#img-container').imagesLoaded(function() {
       $('#preloader').hide();
+    });
+
+    (function ($) {
+      // Instantiate wookmark after all images have been loaded
+      var wookmark,
+          container = '#wookmark-container',
+          $container = $(container),
+          $window = $(window),
+          $document = $(document);
+      imagesLoaded(container, function () {
+        wookmark = new Wookmark(container, {
+          autoResize: true,
+          offset: 30, // Optional, the distance between grid items
+          outerOffset: 20, // Optional, the distance to the containers border
+          itemWidth: 230 // Optional, the width of a grid item
+        });
+      });
+    })(jQuery);
+
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
     });
   </script>
 </body>
