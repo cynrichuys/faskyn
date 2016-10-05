@@ -36,6 +36,8 @@
             <p>Ben je niet tevreden over kleur, model van je juweel kan je steeds retourneren.
             De sieraden dienen ongebruikt, onbeschadigd en in originele verpakking binnen de 10 dagen terug gezonden te worden.
             Na ontvangst zal de som zo vlug mogelijk teruggestort worden exclusief verzendkosten.</p>
+            <hr>
+            <p>Ondernemingsnummer BE 0631 729 128</p>
           </div>
         </div>
       </div>
@@ -141,7 +143,7 @@
         </div>
       </div>
       <div class="modal fade" id="<%= entry[:id] %>ModalPhoto" tabindex="-1" role="dialog" aria-labelledby="<%= entry[:id] %>ModalPhoto" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-body">
               <%= image_tag("#{entry[:photo]}", style: "width: 100%;")%>
@@ -154,14 +156,12 @@
     <!-- Footer -->
     <footer>
       <div class="container">
-        <div class="row">
-          <div class="col-md-6">
             <ul class="legals">
               <li><a href="#" data-toggle="modal" data-target="#voorwaardenModal">Voorwaarden</a>&nbsp;&nbsp;</li>
               <li>&nbsp;&nbsp;<a href="mailto:anneke@faskyn.be">Contact</a>&nbsp;&nbsp;</li>
-              <li>&nbsp;&nbsp;<a href="www.faskyn.be">Faskyn <%= Time.now.year %></a></li>
+              <li>&nbsp;&nbsp;<a href="www.faskyn.be">Faskyn <%= Time.now.year %></a>&nbsp;&nbsp;</li>
+              <li>&nbsp;&nbsp;Ondernemingsnummer BE 0631 729 128
             </ul>
-          </div>
         </div>
       </div>
     </footer>
